@@ -24,6 +24,14 @@ module.exports = function(grunt) {
 			}
 		},
 
+		gitrebase: {
+			task: {
+				options: {
+					branch: 'autoCommits'
+				}
+			}
+		},
+
 		gitadd: {
 			task: {
 				options: {
