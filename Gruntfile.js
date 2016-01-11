@@ -12,23 +12,11 @@ module.exports = function(grunt) {
 			},
 			config: {
 				files: ['package.json', 'Gruntfile.js'],
-				tasks: ['jshint', 'gitadd', 'gitcommit']
+				tasks: ['jshint', 'gitadd']
 			},
 			scripts: {
 				files: ['autosave.js'],
-				tasks: ['jshint', 'gitadd', 'gitcommit']
-			},
-			src: {
-				files: ['example.html'],
-				tasks: ['gitadd', 'gitcommit']
-			}
-		},
-
-		gitrebase: {
-			task: {
-				options: {
-					branch: 'autoCommits'
-				}
+				tasks: ['jshint', 'gitadd']
 			}
 		},
 
@@ -39,20 +27,8 @@ module.exports = function(grunt) {
 					force: true
 				},
 				files: {
-					src: ['*.{js,html,json,htaccess}']
+					src: ['*.{js}']
 				}
-			}
-		},
-
-		gitcommit: {
-			your_target: {
-				options: {
-					message: 'Repo updated on: ' + grunt.template.today()
-				},
-				files: [{
-					src: ['*.{js,html,json,htaccess}'],
-					expand: true
-				}]
 			}
 		},
 
@@ -62,7 +38,7 @@ module.exports = function(grunt) {
 	});
 	grunt.registerTask('default', [
 		'grunt-contrib-jshint',
-		'grunt-contrib-watch',
+		'grunt-contrib-watch'
 		'grunt-git',
 		'load-grunt-tasks'
 	]);
